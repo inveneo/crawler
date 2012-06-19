@@ -1,0 +1,2 @@
+SSH_KEYGEN_PATH = '/usr/bin/ssh-keygen'
+
