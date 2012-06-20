@@ -19,6 +19,7 @@ import string
 import random
 import traceback
 import host_walker
+import crawler_conf
 import inveneo_const
 import inveneo_utils
 from ipaddr import IPv4Address
@@ -98,7 +99,7 @@ def query_unit(unit):
 
 def remove_ssh_key(ip_address):
     """Need to remove stale SSH key for given IP address"""
-    sp = Popen([inveneo_const.PATH_SSH_KEYGEN, '-R', str(ip_address)],
+    sp = Popen([crawler_conf.PATH_SSH_KEYGEN, '-R', str(ip_address)],
                stdout=PIPE, stderr=PIPE)
     return sp.communicate()
 
