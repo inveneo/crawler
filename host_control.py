@@ -14,7 +14,7 @@ import time
 import pexpect
 import tempfile
 import subprocess
-import inveneo_const
+import crawler_util
 
 SSH_NEWKEY      = '(?i)are you sure you want to continue connecting'
 PASSWORD_PROMPT = '(?i)password'
@@ -46,13 +46,13 @@ class HostControl(object):
     FULL_BOOT_WAIT      = 60      # extra wait from pingable to fully booted
 
     def __init__(self, hostname, ipaddress, user, pwd,
-                       max_uptime=inveneo_const.SEVEN_DAYS):
+                       max_uptime=crawler_util.SEVEN_DAYS):
         self.hostname   = hostname
         self.ipaddress  = ipaddress
         self.user       = user
         self.pwd        = pwd
         self.max_uptime = max_uptime
-        self.host_make  = inveneo_const.HOST_MAKE_UNKNOWN # set in subclass
+        self.host_make  = crawler_util.HOST_MAKE_UNKNOWN # set in subclass
 
     ##### ABSTRACT METHODS: Override these in your subclass #####
 

@@ -10,18 +10,17 @@ Written by jwiggins@inveneo.org 2011-2012
 import sys
 import ipaddr
 import crawler_conf
-import inveneo_const
-import crawler_utils
+import crawler_util
 from host_control import HostControl, HostControlError
 
 class UbiquitiRadio(HostControl):
     """Controls a Ubiquiti radio"""
 
     def __init__(self, hostname, ipaddress, pwd,
-                       max_uptime=inveneo_const.SEVEN_DAYS):
+                       max_uptime=crawler_util.SEVEN_DAYS):
         HostControl.__init__(self, hostname, ipaddress,
                                crawler_conf.USERNAME_UBIQUITI, pwd, max_uptime)
-        self.host_make  = inveneo_const.HOST_MAKE_UBIQUITI
+        self.host_make  = crawler_util.HOST_MAKE_UBIQUITI
         self.version = None
         self.hardware = None
 
@@ -70,7 +69,7 @@ if __name__ == '__main__':
 
     print 'Version =', radio.get_version()
     print 'Hardware =', radio.get_hardware()
-    print 'Uptime about', crawler_utils.rough_timespan(radio.get_uptime())
+    print 'Uptime about', crawler_util.rough_timespan(radio.get_uptime())
     if reboot:
         print radio.backup('.')
         print radio.reboot(True)

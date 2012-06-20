@@ -13,8 +13,7 @@ import sys
 import socket
 import ipaddr
 import crawler_conf
-import inveneo_const
-import crawler_utils
+import crawler_util
 from host_control import HostControl, HostControlError
 from mikrotik_api_client import ApiRos
 
@@ -24,10 +23,10 @@ class MikrotikRouter(HostControl):
     """Controls a Mikrotik router"""
 
     def __init__(self, hostname, ipaddress, pwd,
-                       max_uptime=inveneo_const.SEVEN_DAYS):
+                       max_uptime=crawler_util.SEVEN_DAYS):
         HostControl.__init__(self, hostname, ipaddress,
                                crawler_conf.USERNAME_MIKROTIK, pwd, max_uptime)
-        self.host_make  = inveneo_const.HOST_MAKE_MIKROTIK
+        self.host_make  = crawler_util.HOST_MAKE_MIKROTIK
         self.version  = None
         self.hardware = None
 
@@ -128,7 +127,7 @@ if __name__ == '__main__':
 
     print 'Version =', router.get_version()
     print 'Hardware =', router.get_hardware()
-    print 'Uptime about', crawler_utils.rough_timespan(router.get_uptime())
+    print 'Uptime about', crawler_util.rough_timespan(router.get_uptime())
     print 'Adjacency:'
     print router.get_adjacency()
     if reboot:

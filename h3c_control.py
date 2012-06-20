@@ -13,18 +13,17 @@ import sys
 import ipaddr
 import pexpect
 import crawler_conf
-import inveneo_const
-import crawler_utils
+import crawler_util
 from host_control import HostControl, HostControlError
 
 class H3CSwitch(HostControl):
     """Controls an H3C switch"""
 
     def __init__(self, hostname, ipaddress, pwd,
-                       max_uptime=inveneo_const.SEVEN_DAYS):
+                       max_uptime=crawler_util.SEVEN_DAYS):
         HostControl.__init__(self, hostname, ipaddress,
                                    crawler_conf.USERNAME_H3C, pwd, max_uptime)
-        self.host_make = inveneo_const.HOST_MAKE_H3C
+        self.host_make = crawler_util.HOST_MAKE_H3C
         self.version = None
         self.hardware = None
 
@@ -273,7 +272,7 @@ if __name__ == '__main__':
 
     print 'Version =', switch.get_version()
     print 'Hardware =', switch.get_hardware()
-    print 'Uptime about', crawler_utils.rough_timespan(switch.get_uptime())
+    print 'Uptime about', crawler_util.rough_timespan(switch.get_uptime())
     print 'Device:', switch.command('display device')
     if reboot:
         print 'Backup config =', switch.backup('.')

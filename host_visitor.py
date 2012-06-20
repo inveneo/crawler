@@ -20,8 +20,7 @@ import random
 import traceback
 import host_walker
 import crawler_conf
-import inveneo_const
-import crawler_utils
+import crawler_util
 from ipaddr import IPv4Address
 from subprocess import Popen, PIPE
 from h3c_control import H3CSwitch
@@ -92,7 +91,7 @@ def query_unit(unit):
     # also query for uptime
     try:
         uptime = unit.get_uptime()
-        emit_tab(crawler_utils.rough_timespan(uptime))
+        emit_tab(crawler_util.rough_timespan(uptime))
     except:
         raise
     return uptime
@@ -193,17 +192,17 @@ if __name__ == '__main__':
         emit('Config\n')
 
         for host in walker:
-            if host.host_make == inveneo_const.HOST_MAKE_UBIQUITI:
+            if host.host_make == crawler_util.HOST_MAKE_UBIQUITI:
                 unit = UbiquitiRadio(host.hostname,
                                      host.ip_addr,
                                      host.password,
                                      host.max_uptime)
-            elif host.host_make == inveneo_const.HOST_MAKE_H3C:
+            elif host.host_make == crawler_util.HOST_MAKE_H3C:
                 unit = H3CSwitch(host.hostname,
                                  host.ip_addr,
                                  host.password,
                                  host.max_uptime)
-            elif host.host_make == inveneo_const.HOST_MAKE_MIKROTIK:
+            elif host.host_make == crawler_util.HOST_MAKE_MIKROTIK:
                 unit = MikrotikRouter(host.hostname,
                                       host.ip_addr,
                                       host.password,

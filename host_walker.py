@@ -15,7 +15,7 @@ Written by jwiggins@inveneo.org 2011-2012
 import sys
 import ipaddr
 import crawler_conf
-import inveneo_const
+import crawler_util
 from xml.etree import ElementTree
 
 # for parsing OpenNMS XML
@@ -47,13 +47,13 @@ class OpenNMSFile(object):
         root = et.getroot()
         foreign_source = root.attrib['foreign-source']
         if foreign_source in crawler_conf.FOREIGN_SOURCES_UBIQUITI:
-            self.host_make = inveneo_const.HOST_MAKE_UBIQUITI
+            self.host_make = crawler_util.HOST_MAKE_UBIQUITI
         elif foreign_source in crawler_conf.FOREIGN_SOURCES_H3C:
-            self.host_make = inveneo_const.HOST_MAKE_H3C
+            self.host_make = crawler_util.HOST_MAKE_H3C
         elif foreign_source in crawler_conf.FOREIGN_SOURCES_MIKROTIK:
-            self.host_make = inveneo_const.HOST_MAKE_MIKROTIK
+            self.host_make = crawler_util.HOST_MAKE_MIKROTIK
         else:
-            self.host_make = inveneo_const.HOST_MAKE_UNKNOWN
+            self.host_make = crawler_util.HOST_MAKE_UNKNOWN
 
         for xml_node in et.findall(NODE):
             host_node = HostNode(xml_node, self.host_make)
