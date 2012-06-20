@@ -6,6 +6,7 @@ NODE_PASSWORD = 'Links4@yti'
 # usernames
 USERNAME_H3C      = 'admin'
 USERNAME_MIKROTIK = 'admin'
+USERNAME_UBIQUITI = 'ubnt'
 
 # maximum uptime (seconds)
 MAX_UPTIME = 7 * 24 * 60 * 60
