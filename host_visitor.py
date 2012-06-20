@@ -187,7 +187,6 @@ if __name__ == '__main__':
         emit_tab('Make')
         emit_tab('Host')
         emit_tab('IP')
-        emit_tab('Passwd')
         emit_tab('Ping')
         emit_tab('Version')
         emit_tab('Uptime')
@@ -217,7 +216,6 @@ if __name__ == '__main__':
             emit_tab(host.host_make)
             emit_tab(host.hostname)
             emit_tab(str(host.ip_addr))
-            emit_tab(inveneo_utils.password_name_by_value(host.password))
 
             # do the work for this kind of device
             if visitation(unit, backup_root, reboots < max_reboots):
