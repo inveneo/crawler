@@ -14,7 +14,7 @@ import socket
 import ipaddr
 import crawler_conf
 import inveneo_const
-import inveneo_utils
+import crawler_utils
 from host_control import HostControl, HostControlError
 from mikrotik_api_client import ApiRos
 
@@ -128,7 +128,7 @@ if __name__ == '__main__':
 
     print 'Version =', router.get_version()
     print 'Hardware =', router.get_hardware()
-    print 'Uptime about', inveneo_utils.rough_timespan(router.get_uptime())
+    print 'Uptime about', crawler_utils.rough_timespan(router.get_uptime())
     print 'Adjacency:'
     print router.get_adjacency()
     if reboot:

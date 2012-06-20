@@ -11,7 +11,7 @@ import sys
 import ipaddr
 import crawler_conf
 import inveneo_const
-import inveneo_utils
+import crawler_utils
 from host_control import HostControl, HostControlError
 
 class UbiquitiRadio(HostControl):
@@ -70,7 +70,7 @@ if __name__ == '__main__':
 
     print 'Version =', radio.get_version()
     print 'Hardware =', radio.get_hardware()
-    print 'Uptime about', inveneo_utils.rough_timespan(radio.get_uptime())
+    print 'Uptime about', crawler_utils.rough_timespan(radio.get_uptime())
     if reboot:
         print radio.backup('.')
         print radio.reboot(True)

@@ -14,7 +14,7 @@ import ipaddr
 import pexpect
 import crawler_conf
 import inveneo_const
-import inveneo_utils
+import crawler_utils
 from host_control import HostControl, HostControlError
 
 class H3CSwitch(HostControl):
@@ -273,7 +273,7 @@ if __name__ == '__main__':
 
     print 'Version =', switch.get_version()
     print 'Hardware =', switch.get_hardware()
-    print 'Uptime about', inveneo_utils.rough_timespan(switch.get_uptime())
+    print 'Uptime about', crawler_utils.rough_timespan(switch.get_uptime())
     print 'Device:', switch.command('display device')
     if reboot:
         print 'Backup config =', switch.backup('.')

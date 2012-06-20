@@ -1,7 +1,7 @@
 # crawler.conf -- configuration for network host crawler
 
 # passwords
-NODE_PASSWORD = 'Links4@yti'
+NODE_PASSWORD = '$3kR3+'
 
 # usernames
 USERNAME_H3C      = 'admin'

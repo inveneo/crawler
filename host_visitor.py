@@ -21,7 +21,7 @@ import traceback
 import host_walker
 import crawler_conf
 import inveneo_const
-import inveneo_utils
+import crawler_utils
 from ipaddr import IPv4Address
 from subprocess import Popen, PIPE
 from h3c_control import H3CSwitch
@@ -92,7 +92,7 @@ def query_unit(unit):
     # also query for uptime
     try:
         uptime = unit.get_uptime()
-        emit_tab(inveneo_utils.rough_timespan(uptime))
+        emit_tab(crawler_utils.rough_timespan(uptime))
     except:
         raise
     return uptime
