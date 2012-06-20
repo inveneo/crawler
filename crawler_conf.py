@@ -1,5 +1,7 @@
 # crawler.conf -- configuration for network host crawler
 
+# something changed
+
 # passwords
 NODE_PASSWORD = '$3kR3+'
 
