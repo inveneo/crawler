@@ -9,7 +9,8 @@ It generates a report in a form suitable for import into a spreadsheet.
 Written by jwiggins@inveneo.org 2011-2012
 
 ===== Files (top down hierarchy) =====
-nightly.sh          - a script for running this system from cron
+nightly.sh          - a wrapper script for cron to handle logging/reporting
+crawler.sh          - a wrapper script ensuring root, limiting runtime
 host_visitor.py     - top level module; gets host list and does housekeeping
 host_walker.py      - module that pulls together a host list from XML files
 h3c_control.py      - class for controlling H3C switches

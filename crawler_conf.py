@@ -1,7 +1,7 @@
 # crawler.conf -- configuration for network host crawler
 
 # passwords
-NODE_PASSWORD = '$3kR3+'
+NODE_PASSWORD = 'j@mb0net'
 
 # usernames
 USERNAME_H3C      = 'admin'

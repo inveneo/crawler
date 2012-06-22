@@ -15,7 +15,7 @@ import ipaddr
 import crawler_conf
 import crawler_util
 from host_control import HostControl, HostControlError
-from mikrotik_api_client import ApiRos
+#from mikrotik_api_client import ApiRos
 
 API_PORT = 8728 
 
@@ -71,14 +71,14 @@ class MikrotikRouter(HostControl):
         mins  = parts['m'] + hours * 60
         return parts['s'] + mins * 60
 
-    def get_adjacency(self):
-        """Return OSPF neighbor adjacency time"""
-        s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-        s.connect((str(self.ipaddress), API_PORT))
-        apiros = ApiRos(s)
-        apiros.login(self.user, self.pwd)
-        apiros.writeSentence('/routing/ospf/neighbor/print')
-        return 1
+#    def get_adjacency(self):
+#        """Return OSPF neighbor adjacency time"""
+#        s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+#        s.connect((str(self.ipaddress), API_PORT))
+#        apiros = ApiRos(s)
+#        apiros.login(self.user, self.pwd)
+#        apiros.writeSentence('/routing/ospf/neighbor/print')
+#        return 1
 
     def _backup_file_stem(self):
         return '%s_%s_%s' % (self.hostname,
@@ -128,8 +128,8 @@ if __name__ == '__main__':
     print 'Version =', router.get_version()
     print 'Hardware =', router.get_hardware()
     print 'Uptime about', crawler_util.rough_timespan(router.get_uptime())
-    print 'Adjacency:'
-    print router.get_adjacency()
+#    print 'Adjacency:'
+#    print router.get_adjacency()
     if reboot:
         print router.backup('.')
         print router.reboot(True)
