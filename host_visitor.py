@@ -180,6 +180,8 @@ if __name__ == '__main__':
         print 'There are', total_units, 'units to visit'
         reboots = 0
         max_reboots = (total_units / 7) + 1
+        # XXX
+        max_reboots = 0
         print 'Maximum number of reboots is', max_reboots
 
         # column headings
