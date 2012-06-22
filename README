@@ -1,0 +1,21 @@
+README for Inveneo Crawler
+
+The Inveneo Crawler reads a set of host IPs from OpenNMS import XML files, and
+then visits those hosts to do some housekeeping, such as pulling the latest
+configuration and rebooting the host if it has been running a long time.
+
+It generates a report in a form suitable for import into a spreadsheet.
+
+Written by jwiggins@inveneo.org 2011-2012
+
+===== Files (top down hierarchy) =====
+nightly.sh          - a script for running this system from cron
+host_visitor.py     - top level module; gets host list and does housekeeping
+host_walker.py      - module that pulls together a host list from XML files
+h3c_control.py      - class for controlling H3C switches
+mikrotik_control.py - class for controlling Mikrotik routers
+ubiquiti_control.py - class for controlling Ubiquiti radios
+host_control.py     - base class with funtionality common to all hosts
+crawler_util.py     - utility data and functions used by several modules
+crawler_conf.py     - per-site configuration
+README              - this file
