@@ -20,3 +20,34 @@ host_control.py     - base class with funtionality common to all hosts
 crawler_util.py     - utility data and functions used by several modules
 crawler_conf.py     - per-site configuration
 README              - this file
+
+===== Discussion =====
+nightly.sh - This shell script handles three things: making sure only one
+instance of the desired program is running, putting its output into a logfile
+(and rotating log files), and sending an email report of the run.
+
+crawler.sh - This shell script puts a time limit on the running of the program,
+killing it if it goes past its end time (which is passed in via two arguments).
+
+host_visitor.py - This Python script makes a list of hosts to visit, picking up
+where it left off on its last run.  It tries to ping the host, and then to log
+in and get the uptime.  After that it tries to download the config file(s) of
+the host.  And sometimes it may then try to reboot the host.
+
+host_walker.py - This Python script parses OpenNMS provisioning XML files,
+considered to be the "master list" of what host nodes are out there on the
+network, and presents the list.
+
+h3c_control.py, mikrotik_control.py, ubiquiti_control.py - These Python scripts
+are subclasses of host_control.py, extending its functions for specific
+devices (namely, H3C switches, Mikrotik routers, and Ubiquiti radios).
+
+host_control.py - A Python base class for presenting a generic interface to a
+network node: you can query the uptime, version, and configuration, as well as
+reboot the device (but this is an abstract base class: you need to use one of
+the specific subclasses above to work with a given device).
+
+crawler_util.py, crawler_conf.py - These are common utilities and site-specific
+configuration data.
+
+README - A helpful text file, no?
