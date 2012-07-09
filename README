@@ -22,6 +22,10 @@ crawler_conf.py     - per-site configuration
 README              - this file
 
 ===== Discussion =====
+Normally you will run this from /etc/crontab using a line like this:
+
+00 02 * * * root /opt/inveneo/sbin/nightly.sh /opt/inveneo/sbin/crawler.sh 05 00
+
 nightly.sh - This shell script handles three things: making sure only one
 instance of the desired program is running, putting its output into a logfile
 (and rotating log files), and sending an email report of the run.
