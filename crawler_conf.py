@@ -1,7 +1,7 @@
-# crawler.conf -- configuration for network host crawler
+# crawler_conf.py -- configuration for network host crawler
 
 # passwords
-NODE_PASSWORD = 'j@mb0net'
+NODE_PASSWORD = 'all-node-password'
 
 # usernames
 USERNAME_H3C      = 'admin'
