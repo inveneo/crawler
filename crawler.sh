@@ -12,7 +12,7 @@ TIMEOUT="/usr/bin/timeout"
 
 # helper scripts and config files
 STATE="/var/inveneo/crawler-last-visited"
-BACKUPS="/var/backups/pulled-configs"
+BACKUPS="/var/inveneo/pulled-configs"
 VISITOR="/opt/inveneo/crawler/host_visitor.py"
 
 # database of nodes
