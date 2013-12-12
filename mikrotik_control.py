@@ -39,13 +39,13 @@ class MikrotikRouter(HostControl):
 
     def get_hardware(self):
         if self.hardware == None:
-            result = self.ssh_command('system resource print; quit')
-            if len(result) > 14:
-                line = result[14]
-                self.hardware = line.split(':')[1].strip().strip('"')
-            else:
-                raise HostControl.HostControlError((
-                        'Error parsing system resource printout'))
+            result = self.ssh_command('system resource print; quit')        
+            for i, line in enumerate(result):
+                if "board-name" in line:
+                      self.hardware = line.split(':')[1].strip().strip('"')           
+            if self.hardware == None:
+               raise HostControl.HostControlError((
+                       'Error parsing system resource printout'))
         return self.hardware
 
     def get_uptime(self):
